@@ -22,9 +22,9 @@ public class Team {
     public Team() {
     }
 
-    public Team(String location, String name, Set<Player> players) {
-        this.location = location;
+    public Team(String name, String location, Set<Player> players) {
         this.name = name;
+        this.location = location;
         this.players = players;
     }
 

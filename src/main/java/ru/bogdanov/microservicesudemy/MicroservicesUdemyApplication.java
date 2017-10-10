@@ -6,7 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @SpringBootApplication
 public class MicroservicesUdemyApplication {
@@ -22,15 +24,13 @@ public class MicroservicesUdemyApplication {
     public void init() {
         List<Team> list = new ArrayList<>();
 
-        Team team = new Team();
-        team.setLocation("Harlem");
-        team.setName("Globetrotters");
-        list.add(team);
+        Set<Player> set = new HashSet<>();
+        set.add(new Player("Big Easy", "Showman"));
+        set.add(new Player("Buckets", "Guard"));
+        set.add(new Player("Dizzy", "Guard"));
 
-        team = new Team();
-        team.setLocation("Washington");
-        team.setName("Generals");
-        list.add(team);
+        list.add(new Team("Harlem", "Globetrotters", set));
+        list.add(new Team("Washington", "Generals", null));
 
         teamRepository.save(list);
     }
